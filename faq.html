@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Coral Reefs - FAQ</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    .btn-back{
+display:block;
+text-align:center;
+margin:40px auto;
+padding:12px 25px;
+width:200px;
+background:#ff6b6b;
+color:white;
+text-decoration:none;
+border-radius:20px;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html">
+    <img src="LOGO.png" class="corner-logo" alt="Logo">
+</a>
+
+<div class="nav">
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">About</a>
+        <a href="Reef Gallery.html">Species</a>
+        <a href="faq.html">FAQ</a> 
+        <a href="oath.html">Take a oath</a>
+    </div>
+    
+</div>
+
+
+<div id="faq" class="faq-section">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+        <p class="faq-q">1. Are corals plants or animals? <span class="arrow">▼</span></p>
+        <p class="faq-a">Corals are actually marine animals! They are related to jellyfish and sea anemones and are made up of tiny, tentacled creatures called polyps.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">2. How do corals get their bright colors? <span class="arrow">▼</span></p>
+        <p class="faq-a">Their color comes from microscopic algae called zooxanthellae that live inside the coral's tissues. The algae provide food for the coral through photosynthesis.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">3. What is coral bleaching? <span class="arrow">▼</span></p>
+        <p class="faq-a">When the water gets too warm or polluted, corals become stressed and expel the colorful algae living inside them. This leaves them looking completely white, or "bleached," and makes them very vulnerable.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">4. Can a coral reef recover from bleaching? <span class="arrow">▼</span></p>
+        <p class="faq-a">Yes, if water temperatures return to normal quickly enough, the algae can return, and the coral can survive. However, severe or prolonged bleaching often leads to coral death.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">5. Why are coral reefs called the "rainforests of the sea"? <span class="arrow">▼</span></p>
+        <p class="faq-a">Because of their incredible biodiversity! Though they cover less than 1% of the ocean floor, they support around 25% of all marine life.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">6. How fast do coral reefs grow? <span class="arrow">▼</span></p>
+        <p class="faq-a">Very slowly! Depending on the species, corals grow anywhere from 0.3 to 10 centimeters per year. A large reef takes thousands of years to form.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">7. What is the largest coral reef system in the world? <span class="arrow">▼</span></p>
+        <p class="faq-a">The Great Barrier Reef in Australia. It is so massive that it stretches over 1,400 miles and can even be seen from space!</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">8. What do corals eat? <span class="arrow">▼</span></p>
+        <p class="faq-a">Most of their nutrients come from their resident algae. However, they also hunt at night by extending their tentacles to catch microscopic plankton floating by.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">9. How do coral reefs protect our coastlines? <span class="arrow">▼</span></p>
+        <p class="faq-a">Reefs act as natural barriers. They absorb the energy of waves during storms and hurricanes, preventing coastal erosion and protecting coastal communities.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">10. Where are most coral reefs located? <span class="arrow">▼</span></p>
+        <p class="faq-a">Most reef-building corals are found in shallow, clear, tropical, and subtropical waters where sunlight can penetrate to feed their algae.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">11. Are coral reefs in danger? <span class="arrow">▼</span></p>
+        <p class="faq-a">Yes. They face severe threats from climate change, ocean acidification, overfishing, and coastal pollution. Scientists estimate we have already lost 50% of the world's reefs.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">12. What is ocean acidification? <span class="arrow">▼</span></p>
+        <p class="faq-a">As the ocean absorbs excess carbon dioxide from the atmosphere, the water becomes more acidic. This makes it much harder for corals to build their hard calcium carbonate skeletons.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">13. How do corals reproduce? <span class="arrow">▼</span></p>
+        <p class="faq-a">They can reproduce asexually by budding (cloning themselves) to grow the colony, or sexually through "mass spawning," where millions of eggs and sperm are released into the water at the same time.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">14. Is it safe to touch a coral reef? <span class="arrow">▼</span></p>
+        <p class="faq-a">No! Touching corals can scrape off their protective mucus layer, making them susceptible to disease. Plus, some corals (like fire coral) can give you a painful sting.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">15. How can I help protect coral reefs? <span class="arrow">▼</span></p>
+        <p class="faq-a">You can help by reducing your carbon footprint, using "reef-safe" mineral sunscreens, eating sustainable seafood, and never touching or stepping on reefs when snorkeling.</p>
+    </div>
+</div>
+
+<a href="index.html" class="btn-back">← Back to Home</a>
+
+
+<script>
+// --- FAQ SCRIPT ---
+// Find all the questions
+const questions = document.querySelectorAll('.faq-q');
+
+// Add a click listener to each one
+questions.forEach(question => {
+    question.addEventListener('click', () => {
+        // Toggle the 'active' class on the question to flip the arrow
+        question.classList.toggle('active');
+        
+        // Find the answer right below the question and toggle the 'show' class
+        const answer = question.nextElementSibling;
+        answer.classList.toggle('show');
+    });
+});
+
+
+</script>
+</body>
+<footer class="footer">
+            <p>© 2026 Reefopedia | Protect Our Oceans 🌊</p>
+            <p>Email: contact@reefopedia.org</p>
+            <p>+91 9834671337</p>
+        </footer>
+</body>
+</html>

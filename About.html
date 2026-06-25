@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>About Reefopedia</title>
+  <style>
+
+    body{
+    margin:0;
+    font-family:Trebuchet MS, sans-serif;
+    color:white;
+    overflow-x:hidden;
+    background:linear-gradient(180deg,#48c6ff 0%,#2ba6df 25%,#1c86c8 45%,#1568a8 65%,#0f4f85 85%,#08345c 100%);
+    }
+    .nav{
+    background:linear-gradient(90deg,#004e7a,#0077b6,#0096c7);
+    backdrop-filter:blur(8px); 
+    height:60px; /* makes bar visible */
+    width:100%; /* covers full width */ 
+    position:fixed; /* sticks to top */ 
+    top:0; 
+    left:0; 
+    z-index:500; 
+    display:flex;
+    align-items:center; 
+    justify-content:space-between; 
+    padding: 0px 30px;
+    }
+                
+                
+    .nav-links{
+    display:flex;
+    gap: 8px;
+    }
+
+    /* Navigation Links */
+    .nav-links a{
+    color:#bfefff;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:600;
+    padding:6px 10px;
+    transition:0.3s;
+    position:relative;
+    }
+
+    .nav-links a:hover{
+    color:white;
+    text-shadow:0 0 8px #7fdfff;
+    }
+
+    .nav-links a::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:2px;
+    left:0;
+    bottom:-4px;
+    background:white;
+    transition:0.3s;
+    }     
+
+    .nav-links a:hover::after{
+    width:100%;
+    }
+    
+    .corner-logo{
+    position:fixed;
+    top:10px;
+    right:10px;
+    width:60px;
+    z-index:1000; /* above navbar */
+    }
+
+    .corner-logo:hover{
+    transform:scale(1.1);
+    filter:brightness(1.2);
+    }
+
+    /* SUNLIGHT RAYS */
+    .rays{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    background:repeating-linear-gradient(120deg,rgba(255,255,255,0.05) 0px,rgba(255,255,255,0.05) 80px,rgba(255,255,255,0.15) 160px, rgba(255,255,255,0.05) 240px );
+    animation:raysMove 20s linear infinite;
+    }
+
+    @keyframes raysMove{
+    0%{background-position:0 0;}
+    100%{background-position:600px 1200px;}
+    }
+
+    /* TITLE */
+
+    .title{
+    text-align:center;
+    font-size:55px;
+    padding:80px 20px 40px;
+    text-shadow:0 0 10px rgba(57, 91, 51, 0.7);
+    }
+
+    /* CONTENT */
+
+    .section{
+    max-width:900px;
+    margin:auto;
+    padding:60px 20px;
+    font-size:20px;
+    line-height:1.7;
+    }
+
+    .section h2{
+    color:#ffd166;
+    margin-bottom:15px;
+    font-weight: bold;
+    }
+
+    /* BUBBLES */
+
+    .bubble{
+    position:absolute;
+    bottom:-100px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.6);
+    animation:rise 12s infinite ease-in;
+    }
+
+    @keyframes rise{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-1200px);opacity:0;}
+    }
+
+    /* CORAL REEF SILHOUETTE */
+
+    .reef{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    height:120px;
+    background:#062846;
+    clip-path:polygon(
+    0% 80%,5% 75%,10% 85%,15% 70%,20% 82%,25% 65%,30% 78%,35% 60%,
+    40% 72%,45% 68%,50% 80%,55% 70%,60% 85%,65% 60%,70% 75%,75% 65%,
+    80% 78%,85% 68%,90% 85%,95% 70%,100% 80%,100% 100%,0% 100%
+    );
+    }
+
+    /* BACK BUTTON */
+
+    .back{
+    display:block;
+    text-align:center;
+    margin:40px auto;
+    padding:12px 25px;
+    width:200px;
+    background:#ff6b6b;
+    color:white;
+    text-decoration:none;
+    border-radius:20px;
+    font-weight:bold;
+    }
+
+    .back:hover{
+    background:#ff8787;
+    }
+
+    /* WATER CAUSTIC LIGHT */
+
+    .caustics{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15) 0px, transparent 120px),
+    radial-gradient(circle at 70% 40%, rgba(255,255,255,0.12) 0px, transparent 150px),
+    radial-gradient(circle at 40% 70%, rgba(255,255,255,0.1) 0px, transparent 130px),
+    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.12) 0px, transparent 160px);
+    animation:causticMove 18s infinite linear;
+    opacity:0.6;
+    }
+
+    @keyframes causticMove{
+    0%{
+    transform:translateY(0) scale(1);
+    }
+    50%{
+    transform:translateY(-40px) scale(1.05);
+    }
+    100%{
+    transform:translateY(0) scale(1);
+    }
+    }
+
+ </style>
+ </head>
+
+    <body>
+        <div class="content">
+            <!-- LOGO -->
+            <a href="index.html">
+            <img src="LOGO.png" class="corner-logo" alt="Logo">
+            </a>
+
+            <!-- NAVBAR -->
+            <div class="nav">
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="About.html">About</a>
+                    <a href="Reef Gallery.html">Species</a>
+                    <a href="FAQ.html">FAQ's</a>
+                    <a href="oath.html">Take a oath</a>
+                </div>
+            </div>
+
+            <div class="rays"></div>
+
+            <div class="title">🌊 About Reefopedia</div>
+
+
+            <div class="section">
+
+                <h2>🪸 What is Reefopedia?</h2>
+
+                <p>
+                Reefopedia is an educational platform dedicated to exploring the fascinating world of coral reefs and marine ecosystems. Coral reefs are one of the most diverse ecosystems on Earth and are often called the <b>"Rainforests of the Sea"</b> because they support an extraordinary variety of marine life.
+                </p>
+                <p>
+                The purpose of Reefopedia is to provide accessible and engaging information about coral species, reef ecosystems, marine biodiversity, and ocean conservation. By learning about coral reefs, visitors can better understand how important these ecosystems are for the health of our planet.
+                </p>
+                <p>
+                Through educational content, species exploration, and interactive learning, Reefopedia aims to inspire curiosity about marine life and encourage people to appreciate and protect ocean environments.
+                </p>
+
+            </div>
+
+
+            <div class="section">
+
+                <h2>🐠 Coral Reef Ecosystems</h2>
+
+                <p>
+                Coral reefs are built by tiny animals called coral polyps. These organisms live in colonies and produce calcium carbonate skeletons that gradually form the hard structures that make up coral reefs.
+                </p>
+                <p>
+                Over thousands of years, these colonies grow into massive reef systems that provide shelter, feeding grounds, and breeding areas for many marine species. Fish, sea turtles, crustaceans, mollusks, and countless other organisms depend on coral reefs for survival.
+                </p>
+                <p>
+                Despite covering less than 1% of the ocean floor, coral reefs support nearly 25% of all marine species, making them one of the most important ecosystems in the ocean.
+                </p>
+
+            </div>
+
+
+            <div class="section">
+
+                <h2>🌿 Marine Biodiversity</h2>
+
+                <p>
+                Coral reefs host an incredible diversity of life. Colorful reef fish, sponges, algae, sea anemones, sea stars, and soft corals all interact within this complex ecosystem.
+                </p>
+
+                <p>
+                Many species perform important ecological roles. Herbivorous fish help control algae growth so that corals can continue to grow. Cleaner fish remove parasites from larger fish, helping maintain healthy populations.
+                </p>
+
+                <p>
+                This delicate balance of interactions allows coral reefs to remain productive and vibrant ecosystems that support marine life across the entire food web.
+                </p>
+
+            </div>
+
+
+            <div class="section">
+
+                <h2>⚠ Threats to Coral Reefs</h2>
+
+                <p>
+                Unfortunately coral reefs face many serious threats today. Climate change is one of the biggest challenges, as rising ocean temperatures can cause coral bleaching.
+                </p>
+
+                <p>
+                Coral bleaching occurs when corals lose the microscopic algae that live inside their tissues. These algae provide food and color to corals, so when they disappear the corals turn white and may eventually die.
+                </p>
+
+                <p>
+                Other threats include ocean pollution, plastic waste, destructive fishing methods, coastal development, and ocean acidification. These pressures can damage reef ecosystems and reduce biodiversity.
+                </p>
+
+            </div>
+
+
+            <div class="section">
+
+                <h2>💙 Protecting Coral Reefs</h2>
+
+                <p>
+                Conservation efforts around the world are working to protect coral reefs. Marine protected areas help limit harmful human activities and allow reef ecosystems to recover and thrive.
+                </p>
+
+                <p>
+                Scientists are also developing coral restoration techniques, where coral fragments are grown in underwater nurseries and then transplanted onto damaged reefs.
+                </p>
+
+                <p>
+                Reducing pollution, managing fisheries sustainably, and addressing climate change are essential steps in preserving coral reef ecosystems for future generations.
+                </p>
+
+            </div>
+
+
+            <a href="index.html" class="back">⬅ Back to Home</a>
+
+
+            <!-- BUBBLES -->
+
+            <div class="bubble" style="left:10%;animation-delay:0s"></div>
+            <div class="bubble" style="left:30%;animation-delay:4s"></div>
+            <div class="bubble" style="left:50%;animation-delay:2s"></div>
+            <div class="bubble" style="left:70%;animation-delay:6s"></div>
+            <div class="bubble" style="left:90%;animation-delay:3s"></div>
+
+
+            <!-- REEF -->
+
+            <div class="reef"></div>
+            <div class="rays"></div>
+            <div class="caustics"></div>
+
+        </div>
+
+
+    </body>
+</html>

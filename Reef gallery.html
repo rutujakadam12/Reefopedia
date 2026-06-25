@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Coral Reefs</title>
+    <style>
+
+    /* Blur background only for this page */
+    body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: url("ocean-bg.jpg") center/cover no-repeat;
+    filter: blur(3px);   /* adjust blur here */
+    z-index: -1;
+    }
+
+    /* slight dark overlay for better readability */
+    body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+    }
+    .btn-back{
+    display:block;
+    text-align:center;
+    margin:40px auto;
+    padding:12px 25px;
+    width:200px;
+    background:#ff6b6b;
+    color:white;
+    text-decoration:none;
+    border-radius:20px;
+    font-weight:bold;
+    }
+
+    </style>
+    </head>
+
+    <body>
+        <div class="content">
+            <!-- LOGO -->
+            <a href="index.html">
+                <img src="LOGO.png" class="corner-logo" alt="Logo">
+            </a>
+
+            <!-- NAVBAR -->
+            <div class="nav">
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="About.html">About</a>
+                    <a href="Reef Gallery.html">Species</a>
+                    <a href="FAQ.html">FAQ's</a>
+                    <a href="oath.html">Take a oath</a>
+                </div>
+            </div>
+
+            <h2 class="species-title">Coral Reef Species</h2>
+
+           <div class="species-grid">
+             <!-- Elkhorn Coral -->
+                <div class="flip-card" onclick="this.classList.toggle('flip')">
+                    <div class="flip-inner">
+
+                            <div class="flip-front">
+                             <img src="C1 ELKHORN.png">
+                             <h3>Elkhorn Coral</h3>
+                            </div>
+
+                            <div class="flip-back">
+                             <h3>Fun Fact</h3>
+                             <p>Elkhorn coral grows very fast and helps protect coastlines from strong waves.</p>
+                             <a href="ELKHORN.html" class="more-link">Read More →</a>
+                            </div>
+
+                    </div>
+                </div>
+
+                <!-- Diploria Coral -->
+                <div class="flip-card" onclick="this.classList.toggle('flip')">
+                    <div class="flip-inner">
+
+                        <div class="flip-front">
+                            <img src="C2 DIPLORIA.png">
+                            <h3>Diploria Coral</h3>
+                        </div>
+
+                        <div class="flip-back">
+                            <h3>Fun Fact</h3>
+                            <p>Diploria coral is called brain coral because its surface looks like a brain.</p>
+                            <a href="DIPLORIA.html" class="more-link">Read More →</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Black Coral -->
+                <div class="flip-card" onclick="this.classList.toggle('flip')">
+                    <div class="flip-inner">
+
+                        <div class="flip-front">
+                            <img src="C3 BLACK.png">
+                            <h3>Black Coral</h3>
+                        </div>
+
+                        <div class="flip-back">
+                            <h3>Fun Fact</h3>
+                            <p>Black coral skeletons are used in jewelry and can live for centuries.</p>
+                            <a href="BLACKCORAL.html" class="more-link">Read More →</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Fire Coral -->
+                <div class="flip-card" onclick="this.classList.toggle('flip')">
+                    <div class="flip-inner">
+
+                        <div class="flip-front">
+                            <img src="C4 FIRE.png">
+                            <h3>Fire Coral</h3>
+                        </div>
+
+                        <div class="flip-back">
+                            <h3>Fun Fact</h3>
+                            <p>Fire coral can sting swimmers and cause a burning sensation.</p>
+                            <a href="FIRECORAL.html" class="more-link">Read More →</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Great Star Coral -->
+                <div class="flip-card" onclick="this.classList.toggle('flip')">
+                    <div class="flip-inner">
+
+                        <div class="flip-front">
+                            <img src="C5 GREAT STAR.png">
+                            <h3>Great Star Coral</h3>
+                        </div>
+
+                        <div class="flip-back">
+                            <h3>Fun Fact</h3>
+                            <p>Great star coral forms large dome-shaped colonies on reefs.</p>
+                            <a href="GREATSTAR.html" class="more-link">Read More →</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Acropora Muricata -->
+                <div class="flip-card" onclick="this.classList.toggle('flip')">
+                    <div class="flip-inner">
+
+                        <div class="flip-front">
+                            <img src="C6 ACROPORA MURICUATA.png">
+                            <h3>Acropora Muricata</h3>
+                        </div>
+
+                        <div class="flip-back">
+                            <h3>Fun Fact</h3>
+                            <p>This coral grows branching structures that shelter many reef fish.</p>
+                            <a href="ACROPORA.html" class="more-link">Read More →</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Pillar Coral -->
+                <div class="flip-card" onclick="this.classList.toggle('flip')">
+                    <div class="flip-inner">
+
+                        <div class="flip-front">
+                            <img src="C7 PILLAR.png">
+                            <h3>Pillar Coral</h3>
+                        </div>
+
+                        <div class="flip-back">
+                            <h3>Fun Fact</h3>
+                            <p>Pillar coral grows tall vertical columns like underwater pillars.</p>
+                            <a href="PILLAR.html" class="more-link">Read More →</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Carnation Coral -->
+                <div class="flip-card" onclick="this.classList.toggle('flip')">
+                    <div class="flip-inner">
+
+                        <div class="flip-front">
+                            <img src="C8 CARNATION.png">
+                            <h3>Carnation Coral</h3>
+                        </div>
+
+                        <div class="flip-back">
+                            <h3>Fun Fact</h3>
+                            <p>Carnation coral has bright colors and usually lives in deeper waters.</p>
+                            <a href="CARNATION.html" class="more-link">Read More →</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Gorgonian Sea Fan -->
+                <div class="flip-card" onclick="this.classList.toggle('flip')">
+                    <div class="flip-inner">
+
+                        <div class="flip-front">
+                            <img src="C9 GORGORIAN SEA FAN.png">
+                            <h3>Gorgonian Sea Fan</h3>
+                        </div>
+
+                        <div class="flip-back">
+                            <h3>Fun Fact</h3>
+                            <p>Sea fans grow like flat fans and filter plankton from ocean currents.</p>
+                            <a href="GORGONIAN.html" class="more-link">Read More →</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Red Whip Coral -->
+                <div class="flip-card" onclick="this.classList.toggle('flip')">
+                    <div class="flip-inner">
+
+                        <div class="flip-front">
+                            <img src="C10 RED WHIP.png">
+                            <h3>Red Whip Coral</h3>
+                        </div>
+
+                        <div class="flip-back">
+                            <h3>Fun Fact</h3>
+                            <p>Red whip coral grows long whip-like branches that sway in currents.</p>
+                            <a href="REDWHIP.html" class="more-link">Read More →</a>
+                        </div>
+
+                    </div>
+                </div>
+           </div>
+        </div>
+        <a href="index.html" class="btn-back">← Back to Home</a>
+
+        <footer class="footer">
+            <p>© 2026 Reefopedia | Protect Our Oceans 🌊</p>
+            <p>Email: contact@reefopedia.org</p>
+            <p>+91 9834671337</p>
+        </footer>
+    </body>
+</html>

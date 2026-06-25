@@ -1,0 +1,101 @@
+ body{
+            margin:0;
+            font-family:Trebuchet MS, sans-serif;
+            background:linear-gradient(180deg,#00b4d8,#0096c7,#0077b6,#023e8a);
+            color:white;
+            text-align:center;
+            overflow-x:hidden;
+            }
+
+            /* TITLE */
+            .title{
+            font-size:50px;
+            padding:25px;
+            text-shadow:0 0 15px white;
+            }
+
+            /* IMAGE */
+            .coral-img{
+            width:380px;
+            border-radius:20px;
+            box-shadow:0 0 25px #90e0ef;
+            transition:0.4s;
+            }
+
+            .coral-img:hover{
+            transform:scale(1.05) rotate(-2deg);
+            }
+
+            /* CARDS */
+            .container{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:25px;
+            padding:40px;
+            }
+
+            .card{
+            width:300px;
+            background:rgba(255,255,255,0.15);
+            backdrop-filter:blur(10px);
+            padding:20px;
+            border-radius:15px;
+            transition:0.3s;
+            text-align:left;
+            }
+
+            .card:hover{
+            transform:scale(1.08);
+            background:rgba(255,255,255,0.25);
+            }
+
+            .card h3{
+            color:#ffd166;
+            text-align:center;
+            }
+
+            .card ul{
+            padding-left:20px;
+            }
+
+            /* BACK BUTTON */
+            .back{
+            display:inline-block;
+            margin:30px;
+            padding:12px 25px;
+            background:#ff6b6b;
+            color:white;
+            text-decoration:none;
+            border-radius:20px;
+            font-weight:bold;
+            transition:0.3s;
+            }
+
+            .back:hover{
+            background:#ff8787;
+            }
+
+            /* FISH */
+            .fish{
+            position:fixed;
+            font-size:30px;
+            pointer-events:none;
+            transform-origin:center;
+            }
+
+            /* BUBBLES */
+            .bubble{
+            position:fixed;
+            width:12px;
+            height:12px;
+            border-radius:50%;
+            background:rgba(255,255,255,0.7);
+            pointer-events:none;
+            animation:bubbleFloat 4s linear forwards;
+            }
+
+            @keyframes bubbleFloat{
+            0%{opacity:1; transform:scale(1) translateY(0);}
+            100%{opacity:0; transform:scale(2) translateY(-60px);}
+            }

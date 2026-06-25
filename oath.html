@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coral Reefs - Take the Oath</title>
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Orbitron:wght@500&family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            min-height:100vh;
+            margin:0;
+            text-align:center;
+            color:#003f5c;
+            padding-top:52px;
+
+            font-family: 'Poppins', sans-serif;
+
+            /* 🌸 PASTEL OCEAN BACKGROUND */
+            background: linear-gradient(-45deg, #dff6ff, #caf0f8, #bde0fe, #e0fbfc);
+            background-size: 400% 400%;
+            animation: gradientMove 12s ease infinite;
+
+            cursor: url("./fish.png") 16 16, auto;
+        }
+
+        /* BACKGROUND ANIMATION */
+        @keyframes gradientMove{
+            0%{background-position:0% 50%;}
+            50%{background-position:100% 50%;}
+            100%{background-position:0% 50%;}
+        }
+
+        .corner-logo{
+            position:fixed;
+            top:10px;
+            right:10px;
+            width:60px;
+            z-index:1000;
+        }
+
+        /* 🌊 SOFTER NAVBAR */
+      .nav{
+        background:linear-gradient(90deg,#004e7a,#0077b6,#0096c7);
+        backdrop-filter:blur(8px); 
+        height:60px; /* makes bar visible */
+        width:100%; /* covers full width */ 
+        position:fixed; /* sticks to top */ 
+        top:0; 
+        left:0; 
+        z-index:500; 
+        display:flex;
+        align-items:center; 
+        justify-content:space-between; /* logo left — links right */ 
+        padding: 0px 30px;
+        }
+                
+                
+        .nav-links{
+        display:flex;
+        gap: 8px;
+        }
+
+        /* Navigation Links */
+        .nav-links a{
+        color:#bfefff;
+        text-decoration:none;
+        font-size:18px;
+        font-weight:600;
+        padding:6px 10px;
+        transition:0.3s;
+        position:relative;
+        }
+        .nav-links a:hover{
+        color:white;
+        text-shadow:0 0 8px #7fdfff;
+        }
+        .nav-links a::after{
+        content:"";
+        position:absolute;
+        width:0;
+        height:2px;
+        left:0;
+        bottom:-4px;
+        background:white;
+        transition:0.3s;
+        }     
+
+        .nav-links a:hover::after{
+        width:100%;
+        }
+
+        /* 🌸 SOFT GLOW HEADING */
+        .heading{
+            font-size:65px;
+            font-family:'Orbitron', sans-serif;
+            font-weight:bold;
+            margin-top:30px;
+            color:#0077b6;
+
+            text-shadow:0 0 8px #ade8f4, 0 0 15px #caf0f8;
+        }
+
+        .subtitle{
+            font-size:35px;
+            margin-top:-10px;
+            font-family: 'Poppins', sans-serif;
+            color:#0096c7;
+        }
+
+        .btn{
+            font-size:18px;
+            padding:10px 25px;
+            margin:8px;
+            text-decoration:none;
+            color:white;
+            background:#48cae4;
+            border:none;
+            border-radius:8px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#0077b6;
+            transform:scale(1.05);
+        }
+
+        /* --- NEW CERTIFICATE STYLES --- */
+            .oath-container {
+                background: rgba(244, 244, 244, 0.905);
+                padding: 30px;
+                border-radius: 15px;
+                display: inline-block;
+                margin-top: 40px;
+                backdrop-filter: blur(4px);
+            }
+            .name-input {
+                padding: 12px;
+                font-size: 18px;
+                border-radius: 8px;
+                border: 2px solid #a7e8ff;
+                outline: none;
+                width: 250px;
+                margin-bottom: 15px;
+            }
+
+            .certificate-wrapper {
+                display: none; /* Hidden until the user takes the oath */
+                background: rgba(253, 251, 247, 0.95); /* Parchment color */
+                color: #003f5c;
+                width: 80%;
+                max-width: 800px;
+                margin: 40px auto;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            }
+
+            .certificate-inner {
+                border: 6px double #004e7a;
+                padding: 40px;
+                text-align: center;
+                position: relative;
+            }
+
+            .cert-title {
+                font-family: 'Pacifico', cursive;
+                font-size: 55px;
+                color: #004e7a;
+                margin: 0 0 10px 0;
+            }
+
+            .cert-subtitle {
+                font-size: 20px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: #cc3d3d;
+                margin-bottom: 30px;
+            }
+
+            .cert-text {
+                font-size: 22px;
+                line-height: 1.8;
+                margin: 20px 0;
+            }
+
+            .cert-name {
+                font-family: 'Pacifico', cursive;
+                font-size: 40px;
+                color: #cc3d3d;
+                border-bottom: 2px solid #004e7a;
+                display: inline-block;
+                min-width: 350px;
+                margin: 10px 0;
+                padding: 0 10px;
+            }
+
+            .signature-area {
+                margin-top: 50px;
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-end;
+            }
+
+            .signature-block {
+                text-align: center;
+            }
+
+            .signature {
+                font-family: 'Pacifico', cursive;
+                font-size: 28px;
+                color: #004e7a;
+                border-bottom: 1px solid #003f5c;
+                padding: 0 20px;
+                margin-bottom: 5px;
+            }
+            @media print {
+            body { background: none; color: black; }
+            .nav, .corner-logo, .oath-container, .print-btn { display: none !important; }
+            .certificate-wrapper { display: block; width: 100%; margin: 0; }
+             }
+    </style>
+</head>
+
+<body>
+
+<a href="middle.html">
+<img src="LOGO.png" class="corner-logo">
+</a>
+
+<div class="nav">
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="About.html">About</a>
+<a href="Reef gallery.html">Species</a>
+<a href="faq.html">FAQ's</a>
+<a href="#">Take Oath</a>
+</div>
+</div>
+
+<div id="oath-section">
+<h1 class="heading">Protector of the Reef</h1>
+<h3 class="subtitle">Take the Oath</h3>
+
+<div class="oath-container">
+<h2>Enter your name to generate your Official Certificate</h2>
+<input type="text" id="userName" class="name-input" placeholder="Your Full Name"><br>
+<button class="btn" onclick="generateCertificate()">Take the Oath!</button>
+</div>
+</div>
+
+<div id="certificate" class="certificate-wrapper">
+<div class="certificate-inner">
+<h1 class="cert-title">Reefopedia</h1>
+<div class="cert-subtitle">Official Certificate of Conservation</div>
+                
+<p class="cert-text">This document proudly certifies that</p>
+                
+<div id="display-name" class="cert-name">Jane Doe</div>
+                
+<p class="cert-text">
+has taken a solemn oath to protect and conserve sea corals. <br> By accepting this certificate, the bearer pledges to take mindful, sustainable steps <br> to preserve the Rainforests of the Sea for future generations.
+</p>
+
+<div class="signature-area">
+<div class="signature-block">
+<div class="signature">Mother Nature</div>
+<div>Authorized Signature</div>
+</div>
+<div class="signature-block">
+<div class="signature">Reefopedia</div>
+<div>Organization</div>
+</div>
+</div>
+</div>
+<br>
+<button class="btn print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+<button class="btn print-btn" onclick="resetOath()" style="background: purple;">↻ Make Another</button>
+</div>
+<script>
+// Function to generate the certificate
+function generateCertificate() {
+let nameInput = document.getElementById("userName").value.trim();
+                
+if(nameInput === "") {
+alert("Please enter your name to take the oath!");
+return;
+}
+                
+// Set the name in the certificate
+document.getElementById("display-name").innerText = nameInput;
+                
+// Hide the input section and show the certificate
+document.getElementById("oath-section").style.display = "none";
+document.getElementById("certificate").style.display = "block";
+}
+
+// Function to reset and make a new one
+function resetOath() {
+document.getElementById("userName").value = "";
+document.getElementById("oath-section").style.display = "block";
+document.getElementById("certificate").style.display = "none";
+}
+</script>
+</body>
+</html>

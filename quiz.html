@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Coral Reef Quiz</title>
+
+<style>
+
+body{
+font-family:'Poppins', sans-serif;
+background:linear-gradient(135deg,#003366,#001f33);
+color:white;
+text-align:center;
+margin:0;
+}
+
+/* Card UI */
+.quiz-box{
+width:420px;
+margin:60px auto;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+h2{
+margin-bottom:15px;
+}
+
+.options{
+text-align:left;
+margin-top:10px;
+}
+
+.options label{
+display:block;
+padding:8px;
+margin:5px 0;
+background:rgba(0,0,0,0.3);
+border-radius:6px;
+cursor:pointer;
+}
+
+.options input{
+margin-right:10px;
+}
+
+button{
+margin-top:15px;
+padding:10px 20px;
+background:#00aaff;
+border:none;
+border-radius:6px;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0088cc;
+}
+
+.homebtn{
+display:inline-block;
+margin-top:20px;
+padding:10px 20px;
+background:#00cc88;
+color:white;
+text-decoration:none;
+border-radius:6px;
+}
+
+.progress{
+margin-top:10px;
+font-size:14px;
+opacity:0.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🧠 Coral Reef Quiz</h1>
+
+<div class="quiz-box">
+
+<h2 id="question">Question</h2>
+
+<div class="options" id="options"></div>
+
+<button onclick="nextQuestion()">Next</button>
+
+<p class="progress" id="progress"></p>
+
+<p id="result"></p>
+
+<a href="index.html" class="homebtn">🏠 Back to Home</a>
+
+</div>
+
+<script>
+
+/* Question bank */
+const quizData = [
+{q:"Coral reefs are actually:", a:["Plants","Animals","Rocks"], correct:1},
+{q:"What percent of marine life depends on coral reefs?", a:["10%","25%","60%"], correct:1},
+{q:"Largest coral reef system?", a:["Caribbean Reef","Great Barrier Reef","Red Sea Reef"], correct:1},
+{q:"Coral reefs are found in:", a:["Cold water","Warm tropical water","Freshwater"], correct:1},
+{q:"Fish that creates sand?", a:["Parrotfish","Shark","Tuna"], correct:0},
+{q:"Coral bleaching is caused by:", a:["Cold water","Pollution & heat","Lack of fish"], correct:1},
+{q:"Corals get color from:", a:["Algae","Sand","Water"], correct:0},
+{q:"Reefs protect coasts from:", a:["Sunlight","Storm waves","Wind"], correct:1}
+];
+
+/* Shuffle questions */
+quizData.sort(() => Math.random() - 0.5);
+
+let current = 0;
+let score = 0;
+
+function loadQuestion(){
+
+let q = quizData[current];
+
+document.getElementById("question").innerText = q.q;
+
+let optionsHTML = "";
+
+q.a.forEach((opt, index)=>{
+optionsHTML += `
+<label>
+<input type="radio" name="answer" value="${index}">
+${opt}
+</label>`;
+});
+
+document.getElementById("options").innerHTML = optionsHTML;
+
+document.getElementById("progress").innerText =
+"Question " + (current+1) + " of " + quizData.length;
+
+}
+
+/* Next button */
+function nextQuestion(){
+
+let selected = document.querySelector('input[name="answer"]:checked');
+
+if(!selected){
+alert("Please select an answer!");
+return;
+}
+
+if(parseInt(selected.value) === quizData[current].correct){
+score++;
+}
+
+current++;
+
+if(current < 5){
+loadQuestion();
+}else{
+showResult();
+}
+
+}
+
+/* Show result */
+function showResult(){
+
+let message = "";
+
+if(score === 5){
+message = "🌟 Expert!";
+}else if(score >= 3){
+message = "🐠 Great job!";
+}else{
+message = "🌊 Keep learning!";
+}
+
+document.querySelector(".quiz-box").innerHTML = `
+<h2>Your Score: ${score}/5</h2>
+<p>${message}</p>
+<button onclick="location.reload()">🔄 Restart</button>
+`;
+
+}
+
+/* Start */
+loadQuestion();
+
+</script>
+
+</body>
+</html>

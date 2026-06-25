@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+     <meta charset="UTF-8">
+     <link rel="stylesheet" href="style.css">
+     <title>Coral Reefs</title>
+     
+    </head>
+
+  <body>
+
+        <div class="content">
+            <!-- LOGO -->
+            <a href="index.html">
+                <img src="LOGO.png" class="corner-logo" alt="Logo">
+            </a>
+
+            <!-- NAVBAR -->
+            <div class="nav">
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="About.html">About</a>
+                    <a href="Reef Gallery.html">Species</a>
+                    <a href="FAQ.html">FAQ's</a>
+                    <a href="oath.html">Take a oath</a>
+                </div>
+            </div>
+
+            <!-- HEADING -->
+            <h1 class="heading">Reefopedia</h1>
+            <h3 class="subtitle">----The Rainforest of the Sea----</h3>
+
+            <!-- FUN FACTS -->
+            <h3 class="fact"><span style="color:red;font-size:25px"><b>Fun Facts:</b></span><span id="factText"></span></h3>
+
+            <!-- GREETING TEXT -->
+            <p class="msg">
+                <b>Hey Explorer!! Welcome to Coral Reef Zone.</b><br>
+                Dive into facts, species & stories that make oceans magical.<br>
+                Let's learn and love ❤️ reefs together.
+            </p>
+
+            <script>
+                let facts=[
+                    "Corals are animals, not plants!",
+                    "25% of marine species depend on coral reefs.",
+                    "Reefs cover less than 1% of the ocean, yet support huge biodiversity.",
+                    "The Great Barrier Reef can be seen from space.",
+                    "Some corals glow in the dark!",
+                    "Corals grow only 1-3 cm per year."
+                ];
+                let factIndex=0,charIndex=0;
+
+                function typeFact(){
+                    let fact=facts[factIndex];
+                    document.getElementById("factText").innerText=fact.substring(0,charIndex);
+                    charIndex++;
+                    if(charIndex<=fact.length) setTimeout(typeFact,80);
+                }
+                setInterval(()=>{
+                    factIndex=(factIndex+1)%facts.length; charIndex=0; typeFact();
+                },20000);
+                typeFact();
+            </script>
+
+        </div>
+
+        <div class="bubble" style="left:10%"></div>
+        <div class="bubble" style="left:30%; animation-delay:1s"></div>
+        <div class="bubble" style="left:60%; animation-delay:2s"></div>
+        <div class="bubble" style="left:80%; animation-delay:4s"></div>
+
+        <div class="fun-zone">
+
+            <h2>🎮 Reef Fun Zone</h2>
+
+            <p>Take a break and enjoy some ocean-themed activities!</p>
+
+            <div class="fun-buttons">
+
+                <a href="game.html" class="fun-btn">🐠 Play Game</a>
+
+                <a href="quiz.html" class="fun-btn">🧠 Quiz Test</a>
+
+                <a href="puzzle.html" class="fun-btn">🧩 Puzzle</a>
+
+            </div>
+
+        </div>
+        <!-- Newsletter Section -->
+        <div class="newsletter">
+
+            <h2>Stay Connected With The Ocean 🌊</h2>
+
+            <p>Subscribe to get coral reef facts, marine life updates, and ocean conservation tips.</p>
+
+            <div class="subscribe-box">
+                <input type="email" id="email" placeholder="Enter your email address">
+                <button onclick="subscribe()">Subscribe</button>
+            </div>
+
+        </div>
+
+        <!-- Popup Message -->
+        <div id="popup" class="popup">
+            <p>✅ You have successfully subscribed!</p>
+        </div>
+
+        <script>
+            function subscribe(){
+
+            var email = document.getElementById("email").value;
+
+            if(email === ""){
+                alert("Please enter your email.");
+                return;
+            }
+
+            var popup = document.getElementById("popup");
+
+            popup.style.display = "block";
+
+            setTimeout(function(){
+                popup.style.display = "none";
+            },3000);
+            }
+        </script>
+        <footer class="footer">
+            <p>© 2026 Reefopedia | Protect Our Oceans 🌊</p>
+            <p>Email: contact@reefopedia.org</p>
+            <p>+91 9834671337</p>
+        </footer>
+
+    </body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Reef Word Puzzle</title>
+
+<style>
+
+body{
+font-family:'Poppins', sans-serif;
+background:linear-gradient(135deg,#003366,#001f33);
+color:white;
+text-align:center;
+margin:0;
+}
+
+.puzzle-box{
+width:400px;
+margin:60px auto;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+h2{
+letter-spacing:3px;
+}
+
+input{
+padding:10px;
+font-size:16px;
+margin-top:10px;
+border-radius:6px;
+border:none;
+outline:none;
+}
+
+button{
+margin:10px;
+padding:10px 20px;
+background:#00aaff;
+border:none;
+border-radius:6px;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0088cc;
+}
+
+.homebtn{
+display:inline-block;
+margin-top:20px;
+padding:10px 20px;
+background:#00cc88;
+color:white;
+text-decoration:none;
+border-radius:6px;
+}
+
+.progress{
+margin-top:10px;
+opacity:0.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🧩 Reef Word Puzzle</h1>
+
+<div class="puzzle-box">
+
+<p>Unscramble this ocean word:</p>
+
+<h2 id="scrambled">----</h2>
+
+<input type="text" id="answer" placeholder="Type your answer">
+
+<br>
+
+<button onclick="checkAnswer()">Submit</button>
+<button onclick="showHint()">💡 Hint</button>
+
+<p class="progress" id="progress"></p>
+<p id="result"></p>
+
+<a href="index.html" class="homebtn">🏠 Back to Home</a>
+
+</div>
+
+<script>
+
+/* Word bank */
+const words = [
+"reef","coral","ocean","fish","shark",
+"algae","turtle","plankton","marine","diver"
+];
+
+/* Shuffle words */
+let shuffledWords = words.sort(() => Math.random() - 0.5);
+
+let current = 0;
+let score = 0;
+let currentWord = "";
+
+/* Scramble function */
+function scramble(word){
+return word.split('').sort(() => Math.random() - 0.5).join('');
+}
+
+/* Load word */
+function loadWord(){
+
+currentWord = shuffledWords[current];
+
+document.getElementById("scrambled").innerText = scramble(currentWord);
+
+document.getElementById("progress").innerText =
+"Word " + (current+1) + " of 5";
+
+}
+
+/* Check answer */
+function checkAnswer(){
+
+let user = document.getElementById("answer").value.toLowerCase();
+
+if(user === ""){
+alert("Please enter a word!");
+return;
+}
+
+if(user === currentWord){
+score++;
+}
+
+current++;
+
+if(current < 5){
+document.getElementById("answer").value="";
+loadWord();
+}else{
+showResult();
+}
+
+}
+
+/* Hint */
+function showHint(){
+
+alert("Hint: Starts with '" + currentWord.charAt(0).toUpperCase() + "'");
+
+}
+
+/* Result */
+function showResult(){
+
+let message="";
+
+if(score === 5){
+message="🌟 Puzzle Master!";
+}
+else if(score >=3){
+message="🐠 Ocean Explorer!";
+}
+else{
+message="🌊 Keep learning!";
+}
+
+document.querySelector(".puzzle-box").innerHTML = `
+<h2>Your Score: ${score}/5</h2>
+<p>${message}</p>
+<button onclick="location.reload()">🔄 Restart</button>
+`;
+
+}
+
+/* Start */
+loadWord();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Catch the Fish - Advanced</title>
+
+<style>
+
+/* Animated Ocean Background */
+body{
+font-family:'Poppins', sans-serif;
+text-align:center;
+margin:0;
+color:white;
+background: linear-gradient(-45deg, #001f33, #003366, #004080, #00264d);
+background-size: 400% 400%;
+animation: oceanMove 10s ease infinite;
+}
+
+@keyframes oceanMove {
+0% {background-position: 0% 50%;}
+50% {background-position: 100% 50%;}
+100% {background-position: 0% 50%;}
+}
+
+/* Home Button */
+.home-btn{
+position:fixed;
+top:20px;
+left:20px;
+background:linear-gradient(135deg,#00cc88,#009966);
+color:white;
+padding:10px 18px;
+border-radius:25px;
+text-decoration:none;
+font-size:14px;
+font-weight:bold;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+transition:0.3s;
+z-index:1000;
+}
+
+.home-btn:hover{
+transform:scale(1.1);
+background:linear-gradient(135deg,#00ffae,#00cc88);
+}
+
+/* Glass Container */
+.game-container{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:15px;
+width:350px;
+margin:60px auto;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+h1{
+margin-bottom:10px;
+}
+
+.stats{
+display:flex;
+justify-content:space-around;
+margin-bottom:10px;
+font-size:18px;
+}
+
+/*  Game Box */
+.game{
+width:320px;
+height:220px;
+border:2px solid #00ccff;
+margin:10px auto;
+position:relative;
+border-radius:10px;
+overflow:hidden;
+
+/* Water tank effect */
+background: radial-gradient(circle at center, rgba(0,153,204,0.3), rgba(0,0,0,0.6));
+box-shadow: inset 0 0 20px rgba(0,255,255,0.3);
+}
+
+/* Fish */
+#fish{
+position:absolute;
+font-size:40px;
+cursor:pointer;
+transition:all 0.3s ease;
+}
+
+/* Click animation */
+.hit{
+transform:scale(1.5);
+}
+
+/* Buttons */
+button{
+margin:10px;
+padding:10px 20px;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+}
+
+.start{
+background:#00cc88;
+color:white;
+}
+
+.end{
+background:#ff4d4d;
+color:white;
+}
+
+button:hover{
+opacity:0.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<!--  Back to Home -->
+<a href="index.html" class="home-btn">🏠 Home</a>
+
+<div class="game-container">
+
+<h1>🐟 Catch the Fish</h1>
+
+<div class="stats">
+<div>Score: <span id="score">0</span></div>
+<div>Time: <span id="timer">15</span>s</div>
+<div>Lives: <span id="lives">3</span></div>
+</div>
+
+<div class="game" onclick="missClick()">
+<div id="fish" onclick="catchFish(event)">🐟</div>
+</div>
+
+<button class="start" onclick="startGame()">▶ Start</button>
+<button class="end" onclick="endGame()">⏹ End</button>
+
+</div>
+
+<script>
+
+let score = 0;
+let timeLeft = 15;
+let lives = 3;
+let speed = 2000;
+let gameRunning = false;
+
+let moveInterval;
+let timerInterval;
+
+function startGame(){
+
+score = 0;
+timeLeft = 15;
+lives = 3;
+speed = 2000;
+gameRunning = true;
+
+updateUI();
+
+moveInterval = setInterval(moveFish, speed);
+
+timerInterval = setInterval(function(){
+
+if(!gameRunning) return;
+
+timeLeft--;
+updateUI();
+
+if(timeLeft <= 0){
+endGame();
+}
+
+},1000);
+
+}
+
+/* Move fish */
+function moveFish(){
+
+let fish = document.getElementById("fish");
+
+let x = Math.random()*260;
+let y = Math.random()*160;
+let size = Math.random()*20 + 30;
+
+fish.style.left = x + "px";
+fish.style.top = y + "px";
+fish.style.fontSize = size + "px";
+
+/* Increase difficulty */
+if(speed > 800){
+speed -= 50;
+clearInterval(moveInterval);
+moveInterval = setInterval(moveFish, speed);
+}
+
+}
+
+/* Catch fish */
+function catchFish(event){
+
+event.stopPropagation();
+
+if(!gameRunning) return;
+
+score++;
+
+let fish = document.getElementById("fish");
+fish.classList.add("hit");
+
+setTimeout(()=>fish.classList.remove("hit"),200);
+
+updateUI();
+
+if(score >= 15){
+alert("🎉 You Win! Score: " + score);
+endGame();
+}
+
+}
+
+/* Miss click */
+function missClick(){
+
+if(!gameRunning) return;
+
+lives--;
+updateUI();
+
+if(lives <= 0){
+alert("💀 Game Over!");
+endGame();
+}
+
+}
+
+/* UI */
+function updateUI(){
+document.getElementById("score").innerText = score;
+document.getElementById("timer").innerText = timeLeft;
+document.getElementById("lives").innerText = lives;
+}
+
+/* End Game */
+function endGame(){
+
+gameRunning = false;
+
+clearInterval(moveInterval);
+clearInterval(timerInterval);
+
+alert("⏰ Final Score: " + score);
+
+}
+
+</script>
+
+</body>
+</html>
